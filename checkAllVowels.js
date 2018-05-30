@@ -2,7 +2,7 @@
 function checkAllVowels(string) {
   // debugger;
   var arrLowCaseVowels = ["a", "i", "u", "e", "o"];
-  var arrUpCaseVowels = ["A", "I", "U", "E", "O"];
+  // var arrUpCaseVowels = ["A", "I", "U", "E", "O"];
 
   var arrString = string.split("");
 
@@ -11,21 +11,27 @@ function checkAllVowels(string) {
   }
 
   for (var i = 0; i < arrLowCaseVowels.length; i++) {
-    var inspectorLow = arrLowCaseVowels[i];
-    if (arrString[0] === inspectorLow) {
+    var inspector = arrLowCaseVowels[i];
+    var comparison = arrString[0];
+    var inspectorUp = arrLowCaseVowels[i].toUpperCase();
+    if (comparison === inspector) {
       arrString.shift();
       var nextStringLow = arrString.join("");
       return checkAllVowels(nextStringLow);
-    }
-  }
-  for (var j = 0; j < arrUpCaseVowels.length; j++) {
-    var inspectorUp = arrUpCaseVowels[j];
-    if (arrString[0] === inspectorUp) {
+    } else if (comparison === inspectorUp) {
       arrString.shift();
       var nextStringUp = arrString.join("");
       return checkAllVowels(nextStringUp);
     }
   }
+  // for (var j = 0; j < arrUpCaseVowels.length; j++) {
+  //   var inspectorUp = arrUpCaseVowels[j];
+  //   if (arrString[0] === inspectorUp) {
+  //     arrString.shift();
+  //     var nextStringUp = arrString.join("");
+  //     return checkAllVowels(nextStringUp);
+  //   }
+  // }
   return false;
 }
 
